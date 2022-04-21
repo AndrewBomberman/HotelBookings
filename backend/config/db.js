@@ -6,8 +6,10 @@ export default class Database{
         const db = client.db(process.env.DATABASE_NAME);
         this.collection = db.collection(process.env.DATABASE_COLLECTION);
         console.log("Database connected");  
+        
     }
     static async results(filters){
+        console.log(filters);
         return this.collection.aggregate([
             { 
                 $match: filters
