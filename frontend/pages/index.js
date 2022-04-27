@@ -2,10 +2,13 @@ import Search from "../components/Search"
 
 
 export default function Home() {
+  
   return (
     <div className="Home">
       <div className="row">
-        <div className="col-lg-2"></div>
+        <div className="col-lg-2">
+          {process.env.customKey}
+        </div>
         <div className="col-lg-8">
           <Search />
         </div>

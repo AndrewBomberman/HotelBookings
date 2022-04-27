@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 const Search = () =>{
+    
     let inputData = {}
     const router = useRouter();
     const handleOnChange = (key,value) => {
@@ -9,12 +10,17 @@ const Search = () =>{
             value = new Date(value).toLocaleDateString('en-GB'); // Converts the date into local date
         }
         inputData[key] = value;
+        console.log(inputData)
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(inputData);
         router.push({
             pathname:"/results",
-            query: inputData
+            query: inputData,
+            headers: {
+                name:"Test"
+            }
         })
     }
 
@@ -28,7 +34,7 @@ const Search = () =>{
                                 <select className="form-select" aria-label="Default select example" defaultValue = "Property Type" name="property_type" onChange={(e)=>handleOnChange(e.target.name,e.target.value)}>
                                     <option>Property Type</option>
                                     <option value="House">House</option>
-                                    <option value="Apartament">Apartament</option>
+                                    <option value="Apartment">Apartament</option>
                                     <option value="Guesthouse">Guesthouse</option>
                                     <option value="Condominium">Condominium</option>
                                     <option value="Loft">Loft</option>
